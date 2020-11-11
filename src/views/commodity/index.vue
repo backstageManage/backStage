@@ -1,6 +1,6 @@
 <template>
   <div>
-    commodity Manage
+    emmmm,不知道怎么写，先休息会吧！
   </div>
 </template>
 
