@@ -61,13 +61,11 @@
     </el-table>
     <el-pagination
       :current-page="currentPage"
-      :page-size="10"
+      :page-size="pageSize"
       :page-count="1"
-      :page-sizes="pageSize"
-      :prev-text="上一页"
-      :next-text="下一页"
-      layout="total, sizes, prev, pager, next, jumper"
-      :total="list.length"
+      prev-text="上一页"
+      next-text="下一页"
+      layout="prev, next, jumper"
       @size-change="handleSizeChange"
       @current-change="handleCurrentChange"
     />
