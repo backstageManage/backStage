@@ -66,6 +66,7 @@
       prev-text="上一页"
       next-text="下一页"
       layout="prev, next, jumper"
+      :total="list.length"
       @size-change="handleSizeChange"
       @current-change="handleCurrentChange"
     />
