@@ -59,6 +59,18 @@
         </template>
       </el-table-column>
     </el-table>
+    <el-pagination
+      :current-page="currentPage"
+      :page-size="10"
+      :page-count="1"
+      :page-sizes="pageSize"
+      :prev-text="上一页"
+      :next-text="下一页"
+      layout="total, sizes, prev, pager, next, jumper"
+      :total="list.length"
+      @size-change="handleSizeChange"
+      @current-change="handleCurrentChange"
+    />
   </div>
 </template>
 
@@ -68,6 +80,8 @@ export default {
     return {
       input1: '',
       input2: '',
+      currentPage: 1,
+      pageSize: 10,
       list: [{
         index: '10001',
         id: '202011120920',
@@ -94,7 +108,98 @@ export default {
         number: '13',
         money: '200.00',
         use: '500.00'
+      },
+      {
+        index: '10003',
+        id: '202011120920',
+        author: '小肉肉',
+        account: '15143563452',
+        number: '13',
+        money: '200.00',
+        use: '500.00'
+      },
+      {
+        index: '10003',
+        id: '202011120920',
+        author: '小肉肉',
+        account: '15143563452',
+        number: '13',
+        money: '200.00',
+        use: '500.00'
+      },
+      {
+        index: '10003',
+        id: '202011120920',
+        author: '小肉肉',
+        account: '15143563452',
+        number: '13',
+        money: '200.00',
+        use: '500.00'
+      },
+      {
+        index: '10003',
+        id: '202011120920',
+        author: '小肉肉',
+        account: '15143563452',
+        number: '13',
+        money: '200.00',
+        use: '500.00'
+      },
+      {
+        index: '10003',
+        id: '202011120920',
+        author: '小肉肉',
+        account: '15143563452',
+        number: '13',
+        money: '200.00',
+        use: '500.00'
+      },
+      {
+        index: '10003',
+        id: '202011120920',
+        author: '小肉肉',
+        account: '15143563452',
+        number: '13',
+        money: '200.00',
+        use: '500.00'
+      },
+      {
+        index: '10003',
+        id: '202011120920',
+        author: '小肉肉',
+        account: '15143563452',
+        number: '13',
+        money: '200.00',
+        use: '500.00'
+      },
+      {
+        index: '10003',
+        id: '202011120920',
+        author: '小肉肉',
+        account: '15143563452',
+        number: '13',
+        money: '200.00',
+        use: '500.00'
+      },
+      {
+        index: '10003',
+        id: '202011120920',
+        author: '小肉肉',
+        account: '15143563452',
+        number: '13',
+        money: '200.00',
+        use: '500.00'
       }]
+    }
+  },
+  methods: {
+    handleSizeChange(val) {
+      console.log(`每页 ${val} 条`)
+      this.pageSize = val
+    },
+    handleCurrentChange(val) {
+      console.log(`当前页: ${val}`)
+      this.currentPage = val
     }
   }
 }
