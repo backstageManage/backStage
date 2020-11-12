@@ -12,7 +12,7 @@
       <el-button type="primary">搜索</el-button>
     </el-row>
     <el-table
-      :data="list"
+      :data="list.slice((currentPage-1)*pageSize,currentPage*pageSize)"
       border
       fit
       highlight-current-row
@@ -53,23 +53,25 @@
         </template>
       </el-table-column>
       <el-table-column align="center" label="操作">
-        <template>
+        <template slot-scope="scope" @click="handleClick(scope.row)">
           <i class="el-icon-edit-outline" />
-          <span>查看</span>
+          <el-button size="small" type="text" @click="handleClick(scope.row)">查看</el-button>
         </template>
       </el-table-column>
     </el-table>
-    <el-pagination
-      :current-page="currentPage"
-      :page-size="pageSize"
-      :page-count="1"
-      prev-text="上一页"
-      next-text="下一页"
-      layout="prev, next, jumper"
-      :total="list.length"
-      @size-change="handleSizeChange"
-      @current-change="handleCurrentChange"
-    />
+    <div class="block">
+      <el-pagination
+        :current-page="currentPage"
+        :page-size="pageSize"
+        :page-count="1"
+        prev-text="上一页"
+        next-text="下一页"
+        layout="prev, next, jumper"
+        :total="list.length"
+        @size-change="handleSizeChange"
+        @current-change="handleCurrentChange"
+      />
+    </div>
   </div>
 </template>
 
@@ -80,7 +82,8 @@ export default {
       input1: '',
       input2: '',
       currentPage: 1,
-      pageSize: 10,
+      pageSize: 5,
+      show: {},
       list: [{
         index: '10001',
         id: '202011120920',
@@ -199,6 +202,9 @@ export default {
     handleCurrentChange(val) {
       console.log(`当前页: ${val}`)
       this.currentPage = val
+    },
+    handleClick(value) {
+      this.show = value
     }
   }
 }
@@ -229,8 +235,15 @@ export default {
     width: 70%;
   }
 }
-.el-icon-time{
+.el-icon-edit-outline{
   color: greenyellow;
   margin-right: 5px;
+}
+.block{
+  box-sizing: border-box;
+  width: 100%;
+  margin-top: 30px;
+  display: flex;
+  justify-content: flex-end;
 }
 </style>
